@@ -84,18 +84,20 @@
             <table class="min-w-full bg-white border border-gray-200">
                 <thead>
                     <tr class="bg-gray-500 text-white uppercase text-sm leading-normal">
+                        <th class="py-3 px-6 text-left">No</th>
                         <th class="py-3 px-6 text-left">ID</th>
                         <th class="py-3 px-6 text-left">Name</th>
                         <th class="py-3 px-6 text-left">Email</th>
-                        <th class="py-3 px-6 text-left">Address</th>
-                        <th class="py-3 px-6 text-left">Manajer</th>
-                        <th class="py-3 px-6 text-left">Telephone</th>
+                        <th class="py-3 px-60 text-left">Address</th>
+                        <th class="py-3 px-16 text-left">Manajer</th>
+                        <th class="py-3 px-16 text-left">Telephone</th>
                         <th class="py-3 px-6 text-left">action</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light" id="tableBody">
-                    @foreach(range(1, 10) as $index)
+                    @foreach(range(1, 20) as $index)
                         <tr class="border-b border-gray-200 hover:bg-gray-100">
+                            <td class="text-black py-3 px-6 text-left whitespace-nowrap">{{ $index }}</td>
                             <td class="py-3 px-6 text-center">{{ fake()->numberBetween(80000, 150000) }}</td>
                             <td class="py-3 px-6 text-left whitespace-nowrap">{{ fake()->Name() }}</td>
                             <td class="py-3 px-6 text-left">{{ fake()->Email() }}</td>

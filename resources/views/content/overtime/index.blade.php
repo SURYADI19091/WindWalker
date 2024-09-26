@@ -3,6 +3,9 @@
 @section('content')
 
     <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-medium">Overtime Table</h3>
+        </div>
         <!-- Search and Filter Button Bar -->
         <div class="flex justify-between items-center mb-4">
             <div class="flex space-x-4">
@@ -81,22 +84,23 @@
 
         @php
         use Carbon\Carbon;
+        use Illuminate\Support\Str;
         @endphp
         
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white border border-gray-200">
                 <thead>
-                    <tr class="bg-gray-500 text-white uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">No</th>
-                        <th class="py-3 px-6 text-left">NIk</th>
-                        <th class="py-3 px-6 text-left">Name Empolyer</th>
-                        <th class="py-3 px-6 text-left">Date</th>
-                        <th class="py-3 px-6 text-left">Shift</th>
+                    <tr class="bg-gray-500 text-white  text-sm leading-normal">
+                        <th class="py-3 px-6 text-center">No</th>
+                        <th class="py-3 px-6 text-center">NIk</th>
+                        <th class="py-3 px-6 text-center">Name Empolyer</th>
+                        <th class="py-3 px-6 text-center">Date</th>
+                        <th class="py-3 px-6 text-center">Shift</th>
                         <th class="py-3 px-6 text-center">Start Time</th>
                         <th class="py-3 px-6 text-center">End Time</th>
                         <th class="py-3 px-6 text-center">Long Hour</th>
                         <th class="py-3 px-6 text-left">Overtime on Time</th>
-                        <th class="py-3 px-6 text-center">Jobdesk Detail</th>
+                        <th class="py-3 px-60 text-left">Jobdesk Detail</th>
                         <th class="py-3 px-6 text-center">Catering</th>
                         <th class="py-3 px-6 text-center">Vihacle</th>
                         <th class="py-3 px-6 text-center">Status  </th>
@@ -104,7 +108,7 @@
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light" id="tableBody">
-                    @foreach(range(1, 10) as $index)
+                    @foreach(range(1, 30) as $index)
                         @php
                             // Generate fake start and end times
                             $startTime = fake()->time('H:i:s');
@@ -130,7 +134,7 @@
                             $Catering = $CateringOptions[array_rand($CateringOptions)];
 
                             // Generate a fake status (Active, Pending, Completed)
-                            $statusOptions = ['Confirm1', 'Confirm2', 'Confirm3'];
+                            $statusOptions = ['OK 1', 'OK 2', 'OK 3'];
                             $status = $statusOptions[array_rand($statusOptions)];
                         @endphp
                         <tr class="border-b border-gray-200 hover:bg-gray-100">
@@ -141,10 +145,10 @@
                             <td class="text-black py-3 px-6 text-left whitespace-nowrap">{{ fake()->numberBetween(1,3) }}</td>
                             <td class="text-black py-3 px-6 text-center">{{ $startTime }}</td>
                             <td class="text-black py-3 px-6 text-center">{{ $endTime }}</td>
-                            <td class="text-black py-3 px-6 text-center">{{ $longHours }} hours</td>
-                            <td class="text-black py-3 px-6 text-left">{{ $OvertimeDay }}</td>
-                            <td class="text-black py-3 px-6 text-left">{{ fake()->jobTitle() }}</td>
-                            <td class="text-black py-3 px-6 text-left">{{ $Catering }}</td>
+                            <td class="text-black py-3 px-6 text-center">{{ $longHours }}&nbsp;hours</td>
+                            <td class="text-black py-3 px-6 text-center">{{ $OvertimeDay }}</td>
+                            <td class="text-black py-3 px-6 text-left">{{ Str::limit(fake()->sentence(50), 40) }}</td>
+                            <td class="text-black py-3 px-6 text-center">{{ $Catering }}</td>
                             <td class="text-black py-3 px-6 text-left">{{ $vehicle }}</td>
                             <td class="text-black py-3 px-6 text-left">{{ $status }}</td>
                             <td class="text-black py-3 px-6 text-center">

@@ -3,6 +3,9 @@
 @section('content')
 
     <div class="p-6">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="text-lg font-medium">Empolyer Table</h3>
+        </div>
         <!-- Search and Filter Button Bar -->
         <div class="flex justify-between items-center mb-4">
             <div class="flex space-x-4">
@@ -84,11 +87,12 @@
             <table class="min-w-full bg-white border border-gray-200">
                 <thead>
                     <tr class="bg-gray-500 text-white uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">ID</th>
+                        <th class="py-3 px-6 text-left">No</th>
+                        <th class="py-3 px-6 text-left">NIK</th>
                         <th class="py-3 px-6 text-left">Name</th>
-                        <th class="py-3 px-6 text-left">Departement</th>
-                        <th class="py-3 px-6 text-left">Position</th>
-                        <th class="py-3 px-6 text-left">Office</th>
+                        <th class="py-3 px-16 text-left">Departement</th>
+                        <th class="py-3 px-16 text-left">Position</th>
+                        <th class="py-3 px-16 text-left">Office</th>
                         <th class="py-3 px-6 text-center">Age</th>
                         <th class="py-3 px-6 text-center">Start Date</th>
                         <th class="py-3 px-6 text-center">End Date</th>
@@ -97,8 +101,9 @@
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light" id="tableBody">
-                    @foreach(range(1, 10) as $index)
+                    @foreach(range(1, 20) as $index)
                         <tr class="border-b border-gray-200 hover:bg-gray-100">
+                            <td class="py-3 px-6 text-left whitespace-nowrap">{{ $index }}</td>
                             <td class="py-3 px-6 text-left whitespace-nowrap">{{ fake()->numberBetween(1,5000) }}</td>
                             <td class="py-3 px-6 text-left whitespace-nowrap">{{ fake()->name() }}</td>
                             <td class="py-3 px-6 text-left">{{ fake()->word() . ' Department' }}</td>
@@ -111,6 +116,9 @@
                             <td class="py-3 px-6 text-center">
                                 <div class="flex justify-center space-x-2">
                                     <button class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600">
+                                        Detail
+                                    </button>
+                                    <button class="bg-yellow-500 text-white py-1 px-3 rounded hover:bg-yellow-600">
                                         Edit
                                     </button>
                                     <button class="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600">

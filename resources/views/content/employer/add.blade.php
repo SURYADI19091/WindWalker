@@ -8,6 +8,7 @@
                 <div class="employer-fields mb-8 p-6 border border-gray-200 rounded-lg">
                     <div class="flex justify-between items-center mb-4">
                         <h3 class="text-lg font-medium">Employer #1</h3>
+                        <button type="button" class="delete-employer bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
@@ -41,6 +42,37 @@
                         <div>
                             <label for="name-0" class="block text-gray-700 mb-2">End Date</label>
                             <input type="date" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+                        <div>
+                            <label for="education-0" class="block text-gray-700 mb-2">Last Education</label>
+                            <select id="education-0" name="employers[0][education]" class="w-full px-4 py-2 border rounded-lg" required>
+                                <option value="" disabled selected>Select Education</option>
+                                <option value="high_school">High School</option>
+                                <option value="associate_degree">Associate Degree</option>
+                                <option value="bachelor_degree">Bachelor's Degree</option>
+                                <option value="master_degree">Master's Degree</option>
+                                <option value="doctorate">Doctorate</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="status-0" class="block text-gray-700 mb-2">Status Employer</label>
+                            <select id="status-0" name="employers[0][status]" class="w-full px-4 py-2 border rounded-lg" required>
+                                <option value="" disabled selected>Select Status</option>
+                                <option value="full_time">Full Time</option>
+                                <option value="part_time">Part Time</option>
+                                <option value="contract">Contract</option>
+                                <option value="internship">Internship</option>
+                                <option value="freelance">Freelance</option>
+                                <option value="unemployed">Unemployed</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="name-0" class="block text-gray-700 mb-2">address</label>
+                            <input type="text" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+                        <div>
+                            <label for="name-0" class="block text-gray-700 mb-2">Salary</label>
+                            <input type="number" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
                         </div>
                         <div>
                             <label for="name-0" class="block text-gray-700 mb-2">Salary</label>

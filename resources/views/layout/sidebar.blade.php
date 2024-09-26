@@ -86,7 +86,7 @@
                 <li class="mb-4">
                     <a href="{{ route('department') }}" class="text-gray-900 text-sm flex items-center hover:text-[#f84525]">
                         <span class="ri-building-line mr-3"></span>
-                        Data Production
+                        Data Item Finish
                     </a>
                 </li>
                 <li class="mb-4">

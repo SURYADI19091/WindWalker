@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl font-semibold mb-6">Add Employers</h2>
+        <h2 class="text-2xl font-semibold mb-6">Overtime Create</h2>
         <form id="employerForm">
             <div id="employer-wrapper">
                 <div class="employer-fields mb-8 p-6 border border-gray-200 rounded-lg">
@@ -11,50 +11,59 @@
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label for="name-0" class="block text-gray-700 mb-2">NIK</label>
-                            <input type="number" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
+                            <label for="email-0" class="block text-gray-700 mb-2">NIK</label>
+                            <select id="email-0" name="employers[0][has_email]" class="w-full px-4 py-2 border rounded-lg" required>
+                                <option value="yes" >Select Employer</option>
+                                <option value="yes">321321321312</option>
+                                <option value="no">3213123123123</option>
+                            </select>
                         </div>
                         <div>
                             <label for="name-0" class="block text-gray-700 mb-2">Name</label>
-                            <input type="text" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="name-0" class="block text-gray-700 mb-2">Departement</label>
-                            <input type="text" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="name-0" class="block text-gray-700 mb-2">Position</label>
-                            <input type="text" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="name-0" class="block text-gray-700 mb-2">Office</label>
-                            <input type="text" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="name-0" class="block text-gray-700 mb-2">Age</label>
-                            <input type="number" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="email-0" class="block text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email-0" name="employers[0][email]" class="w-full px-4 py-2 border rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="name-0" class="block text-gray-700 mb-2">Start Date</label>
-                            <input type="date" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="name-0" class="block text-gray-700 mb-2">End Date</label>
-                            <input type="date" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="name-0" class="block text-gray-700 mb-2">Salary</label>
-                            <input type="number" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
-                        </div>
-                        <div>
-                            <label for="phone-0" class="block text-gray-700 mb-2">Phone</label>
-                            <input type="tel" id="phone-0" name="employers[0][phone]" class="w-full px-4 py-2 border rounded-lg">
+                            <input type="text" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" disabled required>
                         </div>
                         
+                        <div>
+                            <label for="name-0" class="block text-gray-700 mb-2">Date</label>
+                            <input type="date" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+                        <div>
+                            <label for="name-0" class="block text-gray-700 mb-2">Shift</label>
+                            <input type="number" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+                        <div>
+                            <label for="name-0" class="block text-gray-700 mb-2">Start Time</label>
+                            <input type="time" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+                        <div>
+                            <label for="name-0" class="block text-gray-700 mb-2">End Time</label>
+                            <input type="time" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+                        <div>
+                            <label for="email-0" class="block text-gray-700 mb-2">Overtime Weekend</label>
+                            <select id="email-0" name="employers[0][has_email]" class="w-full px-4 py-2 border rounded-lg" required>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="name-0" class="block text-gray-700 mb-2">Jobdesk</label>
+                            <input type="text" id="name-0" name="employers[0][name]" class="w-full px-4 py-2 border rounded-lg" required>
+                        </div>
+                        <div>
+                            <label for="email-0" class="block text-gray-700 mb-2">Catering</label>
+                            <select id="email-0" name="employers[0][has_email]" class="w-full px-4 py-2 border rounded-lg" required>
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="email-0" class="block text-gray-700 mb-2">Vihacle</label>
+                            <select id="email-0" name="employers[0][has_email]" class="w-full px-4 py-2 border rounded-lg" required>
+                                <option value="yes">Vihacle</option>
+                                <option value="no">Pick Up</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
