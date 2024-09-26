@@ -79,37 +79,79 @@
             </div>
         </div>
 
-       <!-- Table -->
+        @php
+        use Carbon\Carbon;
+        @endphp
+        
         <div class="overflow-x-auto">
             <table class="min-w-full bg-white border border-gray-200">
                 <thead>
                     <tr class="bg-gray-500 text-white uppercase text-sm leading-normal">
-                        <th class="py-3 px-6 text-left">ID</th>
-                        <th class="py-3 px-6 text-left">Name</th>
-                        <th class="py-3 px-6 text-left">Departement</th>
-                        <th class="py-3 px-6 text-left">Position</th>
-                        <th class="py-3 px-6 text-left">Office</th>
-                        <th class="py-3 px-6 text-center">Age</th>
-                        <th class="py-3 px-6 text-center">Start Date</th>
-                        <th class="py-3 px-6 text-center">End Date</th>
-                        <th class="py-3 px-6 text-center">Salary</th>
+                        <th class="py-3 px-6 text-left">No</th>
+                        <th class="py-3 px-6 text-left">NIk</th>
+                        <th class="py-3 px-6 text-left">Name Empolyer</th>
+                        <th class="py-3 px-6 text-left">Date</th>
+                        <th class="py-3 px-6 text-left">Shift</th>
+                        <th class="py-3 px-6 text-center">Start Time</th>
+                        <th class="py-3 px-6 text-center">End Time</th>
+                        <th class="py-3 px-6 text-center">Long Hour</th>
+                        <th class="py-3 px-6 text-left">Overtime on Time</th>
+                        <th class="py-3 px-6 text-center">Jobdesk Detail</th>
+                        <th class="py-3 px-6 text-center">Catering</th>
+                        <th class="py-3 px-6 text-center">Vihacle</th>
+                        <th class="py-3 px-6 text-center">Status  </th>
                         <th class="py-3 px-6 text-center">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600 text-sm font-light" id="tableBody">
                     @foreach(range(1, 10) as $index)
+                        @php
+                            // Generate fake start and end times
+                            $startTime = fake()->time('H:i:s');
+                            $endTime = fake()->time('H:i:s');
+        
+                            // Parse start and end times using Carbon
+                            $start = Carbon::parse($startTime);
+                            $end = Carbon::parse($endTime);
+        
+                            // Calculate the difference in hours
+                            $longHours = $end->diffInHours($start);
+
+                            // Generate a fake status (Active, Pending, Completed)
+                            $OvertimeDayOptions = ['Yes', 'No'];
+                            $OvertimeDay = $OvertimeDayOptions[array_rand($OvertimeDayOptions)];
+
+                            // Generate a fake status (Active, Pending, Completed)
+                            $vehicleOptions = ['Vihecle', 'Pick Up'];
+                            $vehicle = $vehicleOptions[array_rand($vehicleOptions)];
+
+                            // Generate a fake status (Active, Pending, Completed)
+                            $CateringOptions = ['Yes', 'No'];
+                            $Catering = $CateringOptions[array_rand($CateringOptions)];
+
+                            // Generate a fake status (Active, Pending, Completed)
+                            $statusOptions = ['Confirm1', 'Confirm2', 'Confirm3'];
+                            $status = $statusOptions[array_rand($statusOptions)];
+                        @endphp
                         <tr class="border-b border-gray-200 hover:bg-gray-100">
-                            <td class="py-3 px-6 text-left whitespace-nowrap">{{ fake()->numberBetween(1,5000) }}</td>
-                            <td class="py-3 px-6 text-left whitespace-nowrap">{{ fake()->name() }}</td>
-                            <td class="py-3 px-6 text-left">{{ fake()->word() . ' Department' }}</td>
-                            <td class="py-3 px-6 text-left">{{ fake()->jobTitle() }}</td>
-                            <td class="py-3 px-6 text-left">{{ fake()->company() }}</td>
-                            <td class="py-3 px-6 text-center">{{ fake()->numberBetween(20, 50) }}</td>
-                            <td class="py-3 px-6 text-center">{{ fake()->date('Y/m/d') }}</td>
-                            <td class="py-3 px-6 text-center">{{ fake()->date('Y/m/d') }}</td>
-                            <td class="py-3 px-6 text-center">${{ fake()->numberBetween(80000, 150000) }}</td>
-                            <td class="py-3 px-6 text-center">
+                            <td class="text-black py-3 px-6 text-left whitespace-nowrap">{{ $index }}</td>
+                            <td class="text-black py-3 px-6 text-left whitespace-nowrap">{{ fake()->numberBetween(1,5000) }}</td>
+                            <td class="text-black py-3 px-6 text-left whitespace-nowrap">{{ fake()->name() }}</td>
+                            <td class="text-black py-3 px-6 text-center">{{ fake()->date('Y/m/d') }}</td>
+                            <td class="text-black py-3 px-6 text-left whitespace-nowrap">{{ fake()->numberBetween(1,3) }}</td>
+                            <td class="text-black py-3 px-6 text-center">{{ $startTime }}</td>
+                            <td class="text-black py-3 px-6 text-center">{{ $endTime }}</td>
+                            <td class="text-black py-3 px-6 text-center">{{ $longHours }} hours</td>
+                            <td class="text-black py-3 px-6 text-left">{{ $OvertimeDay }}</td>
+                            <td class="text-black py-3 px-6 text-left">{{ fake()->jobTitle() }}</td>
+                            <td class="text-black py-3 px-6 text-left">{{ $Catering }}</td>
+                            <td class="text-black py-3 px-6 text-left">{{ $vehicle }}</td>
+                            <td class="text-black py-3 px-6 text-left">{{ $status }}</td>
+                            <td class="text-black py-3 px-6 text-center">
                                 <div class="flex justify-center space-x-2">
+                                    <button class="bg-green-500 text-white py-1 px-3 rounded hover:bg-green-600">
+                                        Confirm
+                                    </button>
                                     <button class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600">
                                         Edit
                                     </button>
@@ -121,9 +163,10 @@
                         </tr>
                     @endforeach
                 </tbody>
-                
             </table>
         </div>
+    
+    
     
     
         <!-- Delete Modal -->
